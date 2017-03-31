@@ -240,6 +240,8 @@ C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Data\Migrations\000
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\ApplicationUser.cs
+C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\Jobs.cs
+C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\Meeting.cs
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\AccountViewModels\ForgotPasswordViewModel.cs
 C:\Users\klowey.ADMIN\Visual Studio 2015\Projects\NMUG-\NMUG\Models\AccountViewModels\LoginViewModel.cs
