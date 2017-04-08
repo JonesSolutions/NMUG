@@ -46,8 +46,28 @@ namespace NMUG.Models
                     },
                     new Title
                     {
+
+                        jobTitle = "Education"
+                    },
+                    new Title
+                    {
+
+                        jobTitle = "Program Director"
+                    },
+                    new Title
+                    {
                        
                         jobTitle = "Treasurer and Membership Director"
+                    },
+                    new Title
+                    {
+
+                        jobTitle = "Treasurer"
+                    },
+                    new Title
+                    {
+
+                        jobTitle = "Membership Director"
                     },
                     new Title
                     {
