@@ -1,0 +1,63 @@
+@model NMUG.Models.Meeting
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Meeting</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="MeetingDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MeetingDate" class="form-control" />
+                <span asp-validation-for="MeetingDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MeetingDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MeetingDescription" class="form-control" />
+                <span asp-validation-for="MeetingDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MeetingLocation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MeetingLocation" class="form-control" />
+                <span asp-validation-for="MeetingLocation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MeetingPresenter" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MeetingPresenter" class="form-control" />
+                <span asp-validation-for="MeetingPresenter" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MeetingTime" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MeetingTime" class="form-control" />
+                <span asp-validation-for="MeetingTime" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
