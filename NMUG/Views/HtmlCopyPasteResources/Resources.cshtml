@@ -1,0 +1,71 @@
+
+@{
+    ViewData["Title"] = "Resources";
+}
+@* Unreferenced page that will be used for copy/paste resources such as search bars, glyphicons, and other long lines of code that may be used often. *@
+
+@* Search Bar w/ fancy GlyphIcon *@
+<form asp-action="Index" method="get">
+    <div class="input-group">
+        <div class="input-group-btn">
+            <input type="text" class="form-control" name="searchString" placeholder="Search" value="@ViewData["CurrentFilter"]">
+            <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+@* Paginated List end of page resource, only usable with a paginatedlist controller*@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex-1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled btn">Previous</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex+1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled btn pull-right">Next</a>
+@* CSS style code for adding a gradiant background, replace ".jumbotron" with the thing you want to use, I.E. ".well" will give the well a gradiant background
+    The "Url" tag at the end is the file path for your image (Usually through wwwroot) *@
+<style>
+    .jumbotron {
+        max-width: 100%;
+        background-size: 100%;
+        background-repeat: repeat-x;
+        /*background-color: white;*/
+        background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 75%, rgba(255,255,255,1) 100%),url(/images/Tree.jpg); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(75%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))),url(/images/Tree.jpg); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%),url(/images/Tree.jpg); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%),url(/images/Tree.jpg); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%),url(/images/Tree.jpg); /* IE10+ */
+        background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%),url(/images/Tree.jpg); /* W3C */
+    }
+</style>
+@* Used for a glyphicon with text in a well underneath, and a hotlink glyphicon  *@
+<div class="row">
+    <div class="row text-center">
+        <div class="well col-sm-4">
+            <a asp-controller="#" asp-action="Index" class="text-success">
+                <img src="~/images/YourPicture.png" />
+                <h4>
+                    <b>
+                        Displayed text here
+                    </b>
+                </h4>
+            </a>
+        </div>
+    </div>
+</div>
+@* Used for spaces in a DL without using css. Used maily when you want different spacing between dl elements *@
+<dt>
+    &nbsp;
+</dt>
+<dd>
+    &nbsp;
+</dd>    
