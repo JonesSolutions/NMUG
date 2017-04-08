@@ -1,14 +1,18 @@
 @model List<NMUG.Models.Directors>
+@*@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService*@
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@* Authorization for later, so the create button is hidden without admin perms *@
+@*@if (await AuthorizationService.AuthorizeAsync(User, "Administrators"))
+{*@
+    <p><a asp-action="Create">Create New </a></p>
+    
+  
 <table class="table">
     <thead>
         <tr>
@@ -16,10 +20,7 @@
                 @Html.DisplayNameFor(model => model[0].title.jobTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].LastName)
+                @Html.DisplayNameFor(model => model[0].FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model[0].Description)
@@ -39,10 +40,7 @@
                 @Html.DisplayFor(modelItem => item.title.jobTitle)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -60,3 +58,4 @@
 }
     </tbody>
 </table>
+

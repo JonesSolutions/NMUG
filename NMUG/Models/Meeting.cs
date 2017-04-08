@@ -18,21 +18,29 @@ namespace NMUG.Models
         public DateTime MeetingDate { get; set; }
         
         [Display(Name = "Meeting Time")]
-        public DateTime MeetingTime { get; set; }
+        public string MeetingTime { get; set; }
 
         [RegularExpression(@"^[\d|A-Z]+[a-zA-Z''-'\s]*$")]
-        [Display(Name = "Meeting Location")]
+        [Display(Name = "Location")]
         public string MeetingLocation { get; set; }
         
-        [Display(Name = "Meeting Presenter")]
+        [Display(Name = "Presenter")]
         public string MeetingPresenter { get; set; }
 
        
-        [Display(Name = "Meeting Description")]
+        [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
         [StringLength(5000)]
         public string MeetingDescription { get; set; }
-
+        
+        [Display(Name = "Date")]       
+        public string dateTime
+        {
+            get
+            {
+                return  MeetingDate.Date.Month.ToString() + "/" + MeetingDate.Date.Day.ToString() + "/" + MeetingDate.Date.Year.ToString() + ", " + MeetingTime + " ";
+            }
+        }
 
     }
 }
