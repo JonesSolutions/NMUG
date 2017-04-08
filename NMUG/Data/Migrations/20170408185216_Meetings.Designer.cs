@@ -8,9 +8,10 @@ using NMUG.Data;
 namespace NMUG.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170408185216_Meetings")]
+    partial class Meetings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -208,7 +209,7 @@ namespace NMUG.Data.Migrations
 
                     b.Property<string>("MeetingPresenter");
 
-                    b.Property<string>("MeetingTime");
+                    b.Property<DateTime>("MeetingTime");
 
                     b.HasKey("Id");
 

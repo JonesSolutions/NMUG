@@ -236,6 +236,7 @@ C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\AccountController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\DirectorsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\HomeController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\ManageController.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\MeetingsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\ApplicationDbContext.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
@@ -245,6 +246,10 @@ C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170331024858_title.
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170331024858_title.Designer.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408175713_merge.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408175713_merge.Designer.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408185216_Meetings.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408185216_Meetings.Designer.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408192402_DateTime.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170408192402_DateTime.Designer.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\ApplicationUser.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\Directors.cs
