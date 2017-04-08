@@ -18,7 +18,10 @@ namespace NMUG.Models
         public string ShortDescription { get; set; }
 
         [Display(Name = "Description")]
-        public string JobDescription { get; set; }       
+        public string JobDescription { get; set; }
+
+        public bool ActiveIn { get; set; }
+
 
 
     }
