@@ -236,6 +236,7 @@ C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Controllers\Accoun
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Controllers\DirectorsController.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Controllers\HomeController.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Controllers\ManageController.cs
+C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Controllers\MembershipsController.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\ApplicationDbContext.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
@@ -243,12 +244,15 @@ C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20170331023827_director.Designer.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20170331024858_title.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20170331024858_title.Designer.cs
+C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20170408193742_memberships.cs
+C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\20170408193742_memberships.Designer.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\ApplicationUser.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\Directors.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\DirectorSeedData.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\Jobs.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\Meeting.cs
+C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\Membership.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\Title.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\TitleSeedData.cs
 C:\Users\jdemiter\Visual Studio 2015\Projects\NMGU\NMUG-\NMUG\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs
