@@ -7,31 +7,34 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
 using NMUG.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NMUG.Controllers
 {
-    public class DirectorsController : Controller
+    public class JobsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public DirectorsController(ApplicationDbContext context)
+        private IHostingEnvironment _environment;
+ 
+        public JobsController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: Directors
-        public async Task<IActionResult> Index(int? id, int? TitleID)
+        public JobsController(IHostingEnvironment environment)
         {
-            if(!_context.Directors.Any())
-            {
-                return View(_context.Directors.ToListAsync());
-            }
-            return View(await _context.Directors
-                .Include(t => t.title)
-                .ToListAsync());
+            _environment = environment;
         }
 
-        // GET: Directors/Details/5
+        // GET: Jobs
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Jobs.ToListAsync());
+        }
+
+        // GET: Jobs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -39,40 +42,38 @@ namespace NMUG.Controllers
                 return NotFound();
             }
 
-            var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
-            if (directors == null)
+            var jobs = await _context.Jobs.SingleOrDefaultAsync(m => m.JobId == id);
+            if (jobs == null)
             {
                 return NotFound();
             }
 
-            return View(directors);
+            return View(jobs);
         }
 
-        // GET: Directors/Create
+        // GET: Jobs/Create
         public IActionResult Create()
         {
-            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle");
             return View();
         }
 
-        // POST: Directors/Create
+        // POST: Jobs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)
+        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(directors);
+                _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", directors.TitleID);
-            return View(directors);
+            return View(jobs);
         }
 
-        // GET: Directors/Edit/5
+        // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,22 +81,22 @@ namespace NMUG.Controllers
                 return NotFound();
             }
 
-            var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
-            if (directors == null)
+            var jobs = await _context.Jobs.SingleOrDefaultAsync(m => m.JobId == id);
+            if (jobs == null)
             {
                 return NotFound();
             }
-            return View(directors);
+            return View(jobs);
         }
 
-        // POST: Directors/Edit/5
+        // POST: Jobs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,Email,FirstName,LastName")] Directors directors)
+        public async Task<IActionResult> Edit(int id, [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs)
         {
-            if (id != directors.ID)
+            if (id != jobs.JobId)
             {
                 return NotFound();
             }
@@ -104,12 +105,12 @@ namespace NMUG.Controllers
             {
                 try
                 {
-                    _context.Update(directors);
+                    _context.Update(jobs);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DirectorsExists(directors.ID))
+                    if (!JobsExists(jobs.JobId))
                     {
                         return NotFound();
                     }
@@ -120,10 +121,10 @@ namespace NMUG.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(directors);
+            return View(jobs);
         }
 
-        // GET: Directors/Delete/5
+        // GET: Jobs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,29 +132,29 @@ namespace NMUG.Controllers
                 return NotFound();
             }
 
-            var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
-            if (directors == null)
+            var jobs = await _context.Jobs.SingleOrDefaultAsync(m => m.JobId == id);
+            if (jobs == null)
             {
                 return NotFound();
             }
 
-            return View(directors);
+            return View(jobs);
         }
 
-        // POST: Directors/Delete/5
+        // POST: Jobs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Directors.Remove(directors);
+            var jobs = await _context.Jobs.SingleOrDefaultAsync(m => m.JobId == id);
+            _context.Jobs.Remove(jobs);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool DirectorsExists(int id)
+        private bool JobsExists(int id)
         {
-            return _context.Directors.Any(e => e.ID == id);
+            return _context.Jobs.Any(e => e.JobId == id);
         }
     }
 }

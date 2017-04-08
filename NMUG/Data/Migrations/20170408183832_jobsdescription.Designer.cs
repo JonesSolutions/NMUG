@@ -8,9 +8,10 @@ using NMUG.Data;
 namespace NMUG.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170408183832_jobsdescription")]
+    partial class jobsdescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -200,6 +201,9 @@ namespace NMUG.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("ActiveIn");
+
+                    b.Property<string>("JobDescription")
+                        .HasAnnotation("MaxLength", 5000);
 
                     b.Property<string>("JobName");
 
