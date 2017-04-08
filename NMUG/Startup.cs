@@ -92,6 +92,9 @@ namespace NMUG
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            TitleSeedData.Initialize(app.ApplicationServices);
+            DirectorSeedData.Initialize(app.ApplicationServices);
+
         }
     }
 }
