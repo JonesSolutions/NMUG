@@ -11,20 +11,7 @@
         <h4>Directors</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Description" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger" />
-            </div>
-        </div>
+       
         <div class="form-group">
             <label asp-for="FirstName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -37,6 +24,21 @@
             <div class="col-md-10">
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
             </div>
         </div>
         <div class="form-group">

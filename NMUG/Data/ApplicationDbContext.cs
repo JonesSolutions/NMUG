@@ -25,6 +25,6 @@ namespace NMUG.Data
         }
 
         public DbSet<Directors> Directors { get; set; }
-        public DbSet<Title> Titles { get; set; }
+        public DbSet<Title> Title { get; set; }
     }
 }

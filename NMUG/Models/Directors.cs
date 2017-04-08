@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace NMUG.Models
 {
     public class Directors
@@ -19,8 +20,9 @@ namespace NMUG.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
+        
         public int TitleID { get; set; }
         [ForeignKey("TitleID")]
-        public virtual Title title { get; set; }
+        public Title title { get; set; }
     }
 }

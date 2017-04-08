@@ -22,8 +22,12 @@ namespace NMUG.Controllers
         // GET: Directors
         public async Task<IActionResult> Index(int? id, int? TitleID)
         {
+            if(!_context.Directors.Any())
+            {
+                return View(_context.Directors.ToListAsync());
+            }
             return View(await _context.Directors
-                .Include(t => t.TitleID)
+                .Include(t => t.title)
                 .ToListAsync());
         }
 

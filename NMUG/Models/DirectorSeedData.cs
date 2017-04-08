@@ -20,6 +20,20 @@ namespace NMUG.Models
                 {
                     return;
                 }
+                context.Directors.AddRange(
+                    new Directors
+
+                    {
+                        TitleID = context.Title.Where(t => t.jobTitle == "President").FirstOrDefault().TitleID,
+                        FirstName = "Louis",
+                        LastName = "Stevens",
+                        Description = "Responsible for everything.  Everything.  I'm talking EVERYTHING.",
+                        Email = "email@email.com"
+
+                    });
+                context.SaveChanges(); 
+                    
+               
             }
         }
     }
