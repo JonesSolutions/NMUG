@@ -20,10 +20,16 @@ namespace NMUG.Controllers
         }
 
         // GET: Directors
-        public async Task<IActionResult> Index(int? id, int? TitleID)
+        public async Task<IActionResult> Index(int? id, int? title)
         {
+            if(_context.Directors.Any())
+            {
+                return View(_context.Directors.ToListAsync());
+            }
+
+
             return View(await _context.Directors
-                .Include(t => t.TitleID)
+                .Include(t => t.title)
                 .ToListAsync());
         }
 
@@ -55,7 +61,7 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName")] Directors directors)
+        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)
         {
             if (ModelState.IsValid)
             {

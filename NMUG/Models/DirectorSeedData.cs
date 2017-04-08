@@ -12,15 +12,34 @@ namespace NMUG.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context =
+            using (var _context =
                 new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
                 //look for any records, if there are records do nothing
-                if (context.Directors.Any())
+                if (_context.Directors.Any())
                 {
                     return;
                 }
+
+
+
+                _context.Directors.AddRange(
+                    new Directors
+                    {
+
+                        TitleID = _context.Titles.Where(t => t.jobTitle == "President").FirstOrDefault().TitleID,
+                        FirstName = "Louis",
+                        LastName = "Stevens",
+                        Description = "Responsible for everything. Everything.  I'm talking EVERYTHING.",
+                        Email = "email@email.com"
+
+
+                    });
+                _context.SaveChanges();
+
+
             }
         }
     }
 }
+

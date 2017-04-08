@@ -18,9 +18,10 @@ namespace NMUG.Models
         public string Description { get; set; }
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
-
+       
         public int TitleID { get; set; }
+
         [ForeignKey("TitleID")]
-        public virtual Title title { get; set; }
+        public Title title { get; set; }
     }
 }
