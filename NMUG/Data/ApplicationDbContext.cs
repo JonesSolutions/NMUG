@@ -31,6 +31,6 @@ namespace NMUG.Data
 
         public DbSet<Jobs> Jobs { get; set; }
 
-        
+
     }
 }

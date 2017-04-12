@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IQueryable<NMUG.Models.Meeting>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -17,6 +18,15 @@
         </div>
         <div>
              NEXT MEETING : @*Display current meeting data*@
+            @if (Model != null)
+            {
+                    @Model.FirstOrDefault().dateTime.ToString()
+            }
+            else
+            {
+                <div> We are currently working on the presentation for the next meeting. Please check back at a later date.</div>
+
+            }
         </div>
     </div>
     <div class="col-sm-2"></div>
@@ -68,6 +78,59 @@
             <h4>The agenda for our meetings is as follows:</h4>
         </div>
     </div>
-    @* Current Meetings viewmodel display here. *@
+    <div class="col-sm-2"></div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+    @if (Model != null)
+    {
+        @*<b> @Model.FirstOrDefault().dateTime.ToString() </b>*@
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <h4>Date and Time</h4>
+                    </th>
+                    <th>
+                        <h4>Location</h4>
+                    </th>
+                    <th>
+                        <h4>Description</h4>
+                    </th>
+                    <th>
+                        <h4>Presenter</h4>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MeetingLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MeetingDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MeetingPresenter)
+                        </td>
+                        <td><a asp-controller="Meetings" asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div><b> We are currently working on the presentation for the next meeting. Please check back at a later date.</b></div>
+
+    }
+    </div>
     <div class="col-sm-2"></div>
 </div>
