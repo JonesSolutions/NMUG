@@ -4,7 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2><b>Become a Member!</b></h2>
+
+<p>Interested in becoming a member of the .NET User Group?  The .NET User Group is a 501(c)3 non profit anization that is heavily involved with education and promotion of .NET development within the New Mexico are. We welcome all new members. Your membership allows the .NET User Group to continue to support the .NET community and hold events and/or promote events that are associated with .NET development. Below are some other benefits of membership: </p>
+<ul typeof="disc">
+    <li>Ability to take part in all SWAG raffles at monthly meetings</li>
+    <li>Ability to vote on major issues amongst the group</li>
+    <li>Discounted admission to all NMUG hosted education seminars</li>
+</ul>
+<p>The annual membership dues are as follows:</p>
+<ul typeof="disc">
+    <li>$25 for standard members renewed every year on membership anniversary date</li>
+    <li>$10 for student members renewed every year on membership anniversary date (Copy of student ID required with membership form)</li>
+</ul>
+<p>Please take a minute to become a member of the .NET User Gorup and support your local .NET community!</p>
+<p>Download the membership form <a href ="/documents/NMUGMembershipForm.pdf" target="_blank">here</a> and join today!</p>
+
+<h3><b>Current Members</b></h3>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,13 +28,16 @@
 <table class="table">
     <thead>
         <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.StreetAddress)
             </th>
             <th>
@@ -36,11 +55,9 @@
                       
             <th>
                 @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
+            </th>*@
                         
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
+            
             
             <th></th>
         </tr>
@@ -48,7 +65,10 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-           
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>*@
+
             
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -56,11 +76,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.StreetAddress)
             </td>
             <td>
@@ -69,13 +85,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.State)
             </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>*@
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |

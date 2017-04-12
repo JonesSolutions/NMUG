@@ -25,10 +25,10 @@ namespace NMUG.Models
         [Required(ErrorMessage = "You must provide a Phone Number")]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?[0-9]{3})\)[-. ]?(0-9]{3})[-. ]?(0-9]{4}$", ErrorMessage = "Not a valid phone number")]
+        //[RegularExpression(@"^\(?[0-9]{3})\)[-. ]?(0-9]{3})[-. ]?(0-9]{4}$", ErrorMessage = "Not a valid phone number")]
         public string PhoneNumber { get; set; }
         
-        public bool Type { get; set; }
+        //public bool Type { get; set; }
 
     }
 }
