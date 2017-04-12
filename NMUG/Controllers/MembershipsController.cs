@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
 using NMUG.Models;
+using System.IO;
 
 namespace NMUG.Controllers
 {
@@ -19,11 +20,14 @@ namespace NMUG.Controllers
             _context = context;    
         }
 
+
         // GET: Memberships
         public async Task<IActionResult> Index()
         {
             return View(await _context.Membership.ToListAsync());
         }
+
+        
 
         // GET: Memberships/Details/5
         public async Task<IActionResult> Details(int? id)
