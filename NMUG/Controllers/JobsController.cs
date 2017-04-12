@@ -9,6 +9,7 @@ using NMUG.Data;
 using NMUG.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace NMUG.Controllers
 {
@@ -18,22 +19,43 @@ namespace NMUG.Controllers
 
         private IHostingEnvironment _environment;
  
-        public JobsController(ApplicationDbContext context)
-        {
-            _context = context;    
-        }
 
-        public JobsController(IHostingEnvironment environment)
+        //public JobsController(IHostingEnvironment environment)
+        //{
+        //    _environment = environment;
+        //}
+
+        public JobsController(ApplicationDbContext context, IHostingEnvironment environment)
         {
+            _context = context;
             _environment = environment;
+
         }
 
         // GET: Jobs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Jobs.ToListAsync());
+            return View (await _context.Jobs.ToListAsync());
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> Index()
+        //{
+        //    var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+        //    foreach (var file in files)
+        //    {
+        //        if (file.Length > 0)
+        //        {
+        //            using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+        //            {
+        //                await file.CopyToAsync(fileStream);
+        //            }
+
+        //        }
+        //    }
+        //    return View();
+        //}
+ 
         // GET: Jobs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -42,7 +64,7 @@ namespace NMUG.Controllers
                 return NotFound();
             }
 
-            var jobs = await _context.Jobs.SingleOrDefaultAsync(m => m.JobId == id);
+            var jobs = await _context.Jobs.Where(j => j.ActiveIn== true).ToListAsync();
             if (jobs == null)
             {
                 return NotFound();
@@ -62,10 +84,23 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs)
+        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
+                var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+                foreach (var file in files)
+                {
+                    if (file.Length > 0)
+                    {
+                        using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                        {
+                            await file.CopyToAsync(fileStream);
+                            jobs.FileName = file.FileName;
+                        }
+
+                    }
+                }
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

@@ -194,6 +194,26 @@ namespace NMUG.Data.Migrations
                     b.ToTable("Directors");
                 });
 
+            modelBuilder.Entity("NMUG.Models.Jobs", b =>
+                {
+                    b.Property<int>("JobId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("ActiveIn");
+
+                    b.Property<string>("FileName");
+
+                    b.Property<string>("JobName");
+
+                    b.Property<DateTime>("JobPostDate");
+
+                    b.Property<string>("ShortDescription");
+
+                    b.HasKey("JobId");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("NMUG.Models.Meeting", b =>
                 {
                     b.Property<int>("Id")
@@ -228,8 +248,6 @@ namespace NMUG.Data.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<int>("MyProperty");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
 
@@ -244,45 +262,6 @@ namespace NMUG.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Membership");
-                });
-
-            modelBuilder.Entity("NMUG.Models.Jobs", b =>
-                {
-                    b.Property<int>("JobId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("ActiveIn");
-
-                    b.Property<string>("JobName");
-
-                    b.Property<DateTime>("JobPostDate");
-
-                    b.Property<string>("ShortDescription");
-
-                    b.HasKey("JobId");
-
-                    b.ToTable("Jobs");
-                });
-
-            modelBuilder.Entity("NMUG.Models.Meeting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("MeetingDate");
-
-                    b.Property<string>("MeetingDescription")
-                        .HasAnnotation("MaxLength", 5000);
-
-                    b.Property<string>("MeetingLocation");
-
-                    b.Property<string>("MeetingPresenter");
-
-                    b.Property<DateTime>("MeetingTime");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Meeting");
                 });
 
             modelBuilder.Entity("NMUG.Models.Title", b =>

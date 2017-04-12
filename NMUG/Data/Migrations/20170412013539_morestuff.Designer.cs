@@ -8,8 +8,8 @@ using NMUG.Data;
 namespace NMUG.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170408192402_DateTime")]
-    partial class DateTime
+    [Migration("20170412013539_morestuff")]
+    partial class morestuff
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -195,6 +195,24 @@ namespace NMUG.Data.Migrations
                     b.ToTable("Directors");
                 });
 
+            modelBuilder.Entity("NMUG.Models.Jobs", b =>
+                {
+                    b.Property<int>("JobId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("ActiveIn");
+
+                    b.Property<string>("JobName");
+
+                    b.Property<DateTime>("JobPostDate");
+
+                    b.Property<string>("ShortDescription");
+
+                    b.HasKey("JobId");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("NMUG.Models.Meeting", b =>
                 {
                     b.Property<int>("Id")
@@ -214,6 +232,35 @@ namespace NMUG.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Meeting");
+                });
+
+            modelBuilder.Entity("NMUG.Models.Membership", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired();
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<bool>("Type");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Membership");
                 });
 
             modelBuilder.Entity("NMUG.Models.Title", b =>
