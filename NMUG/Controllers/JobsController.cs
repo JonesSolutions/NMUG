@@ -57,12 +57,12 @@ namespace NMUG.Controllers
         //}
  
         // GET: Jobs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
             var jobs = await _context.Jobs.Where(j => j.ActiveIn== true).ToListAsync();
             if (jobs == null)

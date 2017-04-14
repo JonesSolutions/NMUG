@@ -46,7 +46,8 @@
                     @Html.DisplayFor(model => item.ShortDescription)
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => item.FileName)
+                    @*@Html.DisplayNameFor(model => item.FileName)*@
+
                 </dt>
                 <dd>
                     <a href = "@Url.Content("~/uploads/"+ item.FileName)" >@Html.DisplayFor(model => item.FileName)</a>

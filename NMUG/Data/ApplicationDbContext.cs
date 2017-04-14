@@ -30,6 +30,8 @@ namespace NMUG.Data
         
         public DbSet<Jobs> Jobs { get; set; }
 
+        public DbSet<Meeting> Meeting { get; set; }
+
 
     }
 }
