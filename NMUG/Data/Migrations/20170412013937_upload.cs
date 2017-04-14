@@ -4,22 +4,21 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NMUG.Data.Migrations
 {
-    public partial class DateTime : Migration
+    public partial class upload : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "MeetingTime",
-                table: "Meeting",
+            migrationBuilder.AddColumn<string>(
+                name: "FileName",
+                table: "Jobs",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "MeetingTime",
-                table: "Meeting",
-                nullable: false);
+            migrationBuilder.DropColumn(
+                name: "FileName",
+                table: "Jobs");
         }
     }
 }

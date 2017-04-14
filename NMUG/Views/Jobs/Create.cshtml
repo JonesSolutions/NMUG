@@ -6,7 +6,8 @@
 
 <h2>Create</h2>
 
-<form asp-action="Create">
+<form asp-action="Create" enctype="multipart/form-data">
+
     <div class="form-horizontal">
         <h4>Jobs</h4>
         <hr />
@@ -40,10 +41,10 @@
                 <span asp-validation-for="ShortDescription" class="text-danger" />
             </div>
         </div>
-        <form method="post" asp-action="Index" asp-controller="Home" enctype="multipart/form-data">
+
             <input type="file" name="files" multiple />
-            <input type="submit" value="Upload" />
-        </form>
+            @*<input type="submit" value="Upload" />*@
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

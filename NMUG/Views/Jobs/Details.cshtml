@@ -1,4 +1,4 @@
-@model NMUG.Models.Jobs
+@model IEnumerable<NMUG.Models.Jobs>
 
 @{
     ViewData["Title"] = "Details";
@@ -9,34 +9,54 @@
 <div>
     <h4>Jobs</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ActiveIn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ActiveIn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.JobPostDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.JobPostDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.JobName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.JobName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
-    </dl>
+    @if (Model.Count() == 0)
+    {
+        <p>There are no active postings right now.  Try back later. </p>
+    }
+
+    else
+    {
+
+        @foreach (var item in Model)
+        {
+            <dl class="dl-horizontal">
+
+                @*<dt>
+                        @Html.DisplayNameFor(model => item.ActiveIn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => item.ActiveIn)
+                    </dd>*@
+                <dt>
+                    @Html.DisplayNameFor(model => item.JobPostDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.JobPostDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => item.JobName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.JobName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => item.ShortDescription)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => item.ShortDescription)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => item.FileName)
+                </dt>
+                <dd>
+                    <a href = "@Url.Content("~/uploads/"+ item.FileName)" >@Html.DisplayFor(model => item.FileName)</a>
+                </dd>
+
+            </dl>
+        }
+    }
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.JobId">Edit</a> |
+    @*<a asp-action="Edit" asp-route-id="@Model.JobId">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
 </div>
