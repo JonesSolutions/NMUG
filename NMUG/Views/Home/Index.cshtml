@@ -18,13 +18,13 @@
         </div>
         <div>
              NEXT MEETING : @*Display current meeting data*@
-            @if (Model != null)
+            @if (Model.Count() == 0)
             {
-                    @Model.FirstOrDefault().dateTime.ToString()
+                <div> We are currently working on the presentation for the next meeting. Please check back at a later date.</div>
             }
             else
             {
-                <div> We are currently working on the presentation for the next meeting. Please check back at a later date.</div>
+             @Model.FirstOrDefault().dateTime.ToString()
 
             }
         </div>
@@ -83,7 +83,7 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-    @if (Model != null)
+    @if (Model.Count() != 0)
     {
         @*<b> @Model.FirstOrDefault().dateTime.ToString() </b>*@
         <table class="table">

@@ -24,9 +24,8 @@ namespace NMUG.Controllers
         }
         public IActionResult Index()
         {
-
+            
             //var meetingsOption1 = _context.Meeting.OrderByDescending(c => c.MeetingDate).Select(c => c.MeetingDate >= DateTime.Today).Take(1);
-
 
             var meetingsOption2 = _context.Meeting.OrderBy(c => c.MeetingDate).Where(m => m.MeetingDate >= DateTime.Today).Take(1);
             
