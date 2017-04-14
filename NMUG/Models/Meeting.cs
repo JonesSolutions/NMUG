@@ -32,15 +32,15 @@ namespace NMUG.Models
         [DataType(DataType.MultilineText)]
         [StringLength(5000)]
         public string MeetingDescription { get; set; }
-        
-        //[Display(Name = "Date")]       
-        //public string dateTime
-        //{
-        //    get
-        //    {
-        //        return  MeetingDate.Date.Month.ToString() + "/" + MeetingDate.Date.Day.ToString() + "/" + MeetingDate.Date.Year.ToString() + ", " + MeetingTime + " ";
-        //    }
-        //}
+
+        [Display(Name = "Date")]
+        public string dateTime
+        {
+            get
+            {
+                return MeetingDate.Date.Month.ToString() + "/" + MeetingDate.Date.Day.ToString() + "/" + MeetingDate.Date.Year.ToString() + ", " + MeetingTime + " ";
+            }
+        }
 
     }
 }
