@@ -24,6 +24,7 @@ namespace NMUG.Models
         [Display(Name = "Active Posting")]
         public bool ActiveIn { get; set; }
         public string FileName { get; set; }
+        public string MakeWork { get; set; }
 
 
     }
