@@ -240,14 +240,8 @@ C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\ManageController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\MeetingsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\MembershipsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\ApplicationDbContext.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170412013539_morestuff.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170412013539_morestuff.Designer.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170412013937_upload.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170412013937_upload.Designer.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414002320_dbContextFix.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414002320_dbContextFix.Designer.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414014703_initial.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414014703_initial.Designer.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\ApplicationUser.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\Directors.cs

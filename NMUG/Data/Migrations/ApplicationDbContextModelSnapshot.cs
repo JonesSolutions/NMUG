@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using NMUG.Data;
 
-namespace NMUG.Data.Migrations
+namespace NMUG.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -207,6 +207,8 @@ namespace NMUG.Data.Migrations
 
                     b.Property<DateTime>("JobPostDate");
 
+                    b.Property<string>("MakeWork");
+
                     b.Property<string>("ShortDescription");
 
                     b.HasKey("JobId");
@@ -247,6 +249,8 @@ namespace NMUG.Data.Migrations
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
+
+                    b.Property<string>("MakesWork");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired();

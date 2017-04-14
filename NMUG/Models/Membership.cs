@@ -29,6 +29,7 @@ namespace NMUG.Models
         public string PhoneNumber { get; set; }
         
         //public bool Type { get; set; }
+        public string MakesWork { get; set; }
 
     }
 }

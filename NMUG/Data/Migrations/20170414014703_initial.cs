@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace NMUG.Data.Migrations
+namespace NMUG.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,6 +60,75 @@ namespace NMUG.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Jobs",
+                columns: table => new
+                {
+                    JobId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ActiveIn = table.Column<bool>(nullable: false),
+                    FileName = table.Column<string>(nullable: true),
+                    JobName = table.Column<string>(nullable: true),
+                    JobPostDate = table.Column<DateTime>(nullable: false),
+                    MakeWork = table.Column<string>(nullable: true),
+                    ShortDescription = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jobs", x => x.JobId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Meeting",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    MeetingDate = table.Column<DateTime>(nullable: false),
+                    MeetingDescription = table.Column<string>(maxLength: 5000, nullable: true),
+                    MeetingLocation = table.Column<string>(nullable: true),
+                    MeetingPresenter = table.Column<string>(nullable: true),
+                    MeetingTime = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meeting", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Membership",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    City = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    MakesWork = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    State = table.Column<string>(nullable: true),
+                    StreetAddress = table.Column<string>(nullable: true),
+                    ZipCode = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Membership", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Title",
+                columns: table => new
+                {
+                    TitleID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    jobTitle = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Title", x => x.TitleID);
                 });
 
             migrationBuilder.CreateTable(
@@ -150,6 +217,29 @@ namespace NMUG.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Directors",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    TitleID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Directors", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Directors_Title_TitleID",
+                        column: x => x.TitleID,
+                        principalTable: "Title",
+                        principalColumn: "TitleID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
@@ -190,6 +280,11 @@ namespace NMUG.Data.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Directors_TitleID",
+                table: "Directors",
+                column: "TitleID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,10 +305,25 @@ namespace NMUG.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Directors");
+
+            migrationBuilder.DropTable(
+                name: "Jobs");
+
+            migrationBuilder.DropTable(
+                name: "Meeting");
+
+            migrationBuilder.DropTable(
+                name: "Membership");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Title");
         }
     }
 }
