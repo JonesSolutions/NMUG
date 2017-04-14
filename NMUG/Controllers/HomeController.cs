@@ -30,7 +30,7 @@ namespace NMUG.Controllers
             var meetingsOption2 = _context.Meeting.OrderBy(c => c.MeetingDate).Where(m => m.MeetingDate >= DateTime.Today).Take(1);
             
             var meetingsOption3 = _context.Meeting.OrderBy(c => c.MeetingDate).Where(m => m.MeetingDate >= DateTime.Today).Take(4);
-            return View(meetingsOption3);
+            return View(meetingsOption2);
 
 
         }
