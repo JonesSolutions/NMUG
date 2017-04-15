@@ -8,7 +8,7 @@ using NMUG.Data;
 namespace NMUG.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170414020051_initial")]
+    [Migration("20170415210332_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,6 +184,8 @@ namespace NMUG.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<string>("Image");
+
                     b.Property<string>("LastName");
 
                     b.Property<int>("TitleID");
@@ -251,8 +253,6 @@ namespace NMUG.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("MakesWork");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
 
@@ -265,6 +265,20 @@ namespace NMUG.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Membership");
+                });
+
+            modelBuilder.Entity("NMUG.Models.Sponsor", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("SponsorLevel");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Sponsor");
                 });
 
             modelBuilder.Entity("NMUG.Models.Title", b =>

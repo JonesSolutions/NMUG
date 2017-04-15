@@ -107,7 +107,6 @@ namespace NMUG.Migrations
                     Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    MakesWork = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
                     State = table.Column<string>(nullable: true),
                     StreetAddress = table.Column<string>(nullable: true),
@@ -116,6 +115,20 @@ namespace NMUG.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Membership", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sponsor",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CompanyName = table.Column<string>(nullable: true),
+                    SponsorLevel = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sponsor", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,6 +239,7 @@ namespace NMUG.Migrations
                     Description = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     TitleID = table.Column<int>(nullable: false)
                 },
@@ -315,6 +329,9 @@ namespace NMUG.Migrations
 
             migrationBuilder.DropTable(
                 name: "Membership");
+
+            migrationBuilder.DropTable(
+                name: "Sponsor");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
