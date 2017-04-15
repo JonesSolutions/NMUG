@@ -24,17 +24,19 @@ namespace NMUG.Models
         public int TitleID { get; set; }
         [ForeignKey("TitleID")]
         public Title title { get; set; }
-
-
+        
+        
         [Display(Name = "Name")]
         public string FullName
         {
             get
             {
-                return LastName + ", " + FirstName + " ";
+                return  FirstName + " " +LastName;
             }
         }
 
+        public string Image { get; set; }
+        
 
     }
 }

@@ -94,7 +94,7 @@ namespace NMUG
             });
             TitleSeedData.Initialize(app.ApplicationServices);
             DirectorSeedData.Initialize(app.ApplicationServices);
-
+            SponsorSeedData.Initialize(app.ApplicationServices);
         }
     }
 }

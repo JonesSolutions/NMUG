@@ -1,12 +1,13 @@
 @model List<NMUG.Models.Directors>
 @*@using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService*@
+@using (Html.BeginForm("Directors", "File", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 
-@{
+{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Directors</h2>
 @* Authorization for later, so the create button is hidden without admin perms *@
 @*@if (await AuthorizationService.AuthorizeAsync(User, "Administrators"))
 {*@
@@ -22,13 +23,15 @@
             <th>
                 @Html.DisplayNameFor(model => model[0].FullName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model[0].Description)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model[0].Email)
             </th>
-            
+            @*<th>
+            @Html.DisplayNameFor(model => model[0].Image)
+            </th>*@
             
             <th></th>
         </tr>
@@ -42,13 +45,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
