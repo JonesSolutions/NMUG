@@ -54,6 +54,12 @@ namespace NMUG.Controllers
             return View();
         }
 
+        public IActionResult EducationView()
+        {
+
+            return View();
+        }
+
 
         public IActionResult Error()
         {
