@@ -7,22 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
 using NMUG.Models;
+using Microsoft.AspNetCore.Server.Kestrel.Internal.Networking;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace NMUG.Controllers
 {
     public class DirectorsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IHostingEnvironment _environment;
 
-        public DirectorsController(ApplicationDbContext context)
+        public DirectorsController(ApplicationDbContext context, IHostingEnvironment environment)
         {
-            _context = context;    
+            _context = context;
+            _environment = environment;
+
         }
 
         // GET: Directors
         public async Task<IActionResult> Index(int? id, int? TitleID)
         {
-            if(!_context.Directors.Any())
+            if (!_context.Directors.Any())
             {
                 return View(_context.Directors.ToListAsync());
             }
@@ -40,6 +47,7 @@ namespace NMUG.Controllers
             }
 
             var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
+            //Directors director = _context.Directors.Include(d => d.Image).SingleOrDefault(d => d.ID == id);
             if (directors == null)
             {
                 return NotFound();
@@ -55,22 +63,42 @@ namespace NMUG.Controllers
             return View();
         }
 
+        
+
+
         // POST: Directors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)
+        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)/* , ICollection<IFormFile> files)*/
         {
             if (ModelState.IsValid)
             {
+                //var profilepics = Path.Combine(_environment.WebRootPath, "profilepics");
+                //foreach (var file in files)
+                //{
+                //    if (file.Length > 0)
+                //    {
+                //        using (var fileStream = new FileStream(Path.Combine(profilepics, file.FileName), FileMode.Create))
+                //        {
+                //            await file.CopyToAsync(fileStream);
+                //            directors.Image = file.FileName;
+                //        }
+                //    }
+                //}
+
+
+
                 _context.Add(directors);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
-            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", directors.TitleID);
+}
+ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", directors.TitleID);
             return View(directors);
         }
+
+
 
         // GET: Directors/Edit/5
         public async Task<IActionResult> Edit(int? id)

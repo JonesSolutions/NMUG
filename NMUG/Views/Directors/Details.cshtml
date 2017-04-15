@@ -10,8 +10,17 @@
     <h4>Directors</h4>
     <hr />
     <dl class="dl-horizontal">
-        
-        
+        @*@if(Model.Files.Any(f => f.FileType == FileType.Image))
+        {
+            <dt>
+                Image
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f =>f.FileType == FileType.Image).FileId" alt="image" />
+            </dd>
+
+        }*@
+
         <dt>
             @Html.DisplayNameFor(model => model.FullName)
         </dt>
@@ -42,6 +51,13 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
+        @*<dt>
+            @Html.DisplayFor(model => model.Image)
+        </dt>
+        <dd>
+            <a href ="@Url.Content("~/profilepics/"+ Model.Image)" >@Html.DisplayFor(model => Model.Image)</a>
+        </dd>*@
+        <dt></dt>
     </dl>
 </div>
 <div>

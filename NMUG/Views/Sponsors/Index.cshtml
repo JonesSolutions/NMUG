@@ -1,0 +1,126 @@
+@model IEnumerable<NMUG.Models.Sponsor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2><b>Become a Sponsor!</b></h2>
+<p>As of September 2008 we currently have over 140 registered group email list members and 46 paid members.  We average 40+ attendees at each monthly meeting and our website generates 300-500 unique visitors weekly.  NMUG has continually grown since inception in 2006 and is considered by several Microsoft Developer Evangelists to be one of the strongest user groups in the SW region.  Our leadership team's primary focus is on growing the presence in the New Mexico area to help the group gain exposure to more Microsoft events and companies looking for great sponsorship opportunities to Microsoft Developers.</p>
+<p>We are a New Mexico Non-Profit corporation; with an IRS 501 (c)(3) application in process.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Annual Sponsor Fee</th>
+            <th>Designation</th>
+            <th>Benefit</th>
+        </tr>
+        <tr>
+            <td>$1500 and up</td>
+            <td>Platinum</td>
+            <td>
+                
+                    Logo on website, most prominent position.<br />
+                    Logo on all NMUG event materials, most prominent position.<br />
+                    Logo on all NMUG banner, most prominent position.<br />
+                    Speaking time at NMUG Meetings.<br />
+                    Indirect mailings (12) to NMUG email list.<br />
+                    Free table at NMUG events.<br />
+                
+            </td>
+
+        </tr>
+        <tr>
+            <td>$1000 - 1499</td>
+            <td>Gold</td>
+            <td>
+
+                Logo on website, second position.<br />
+                Logo on all NMUG event materials, second position.<br />
+                Logo on all NMUG banner, second position.<br />
+                Speaking time at NMUG Meetings.<br />
+                Indirect mailings (6) to NMUG email list.<br />
+                Free table at NMUG events.<br />
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>$250 - 999</td>
+            <td>Silver</td>
+            <td>
+
+                Logo on website, third position.<br />
+                Logo on all NMUG event materials, second position.<br />
+                Logo on all NMUG banner, second position.<br />
+                Speaking time at NMUG Meetings.<br />
+                Indirect mailings (6) to NMUG email list.<br />
+                
+            </td>
+
+        </tr>
+        <tr>
+            <td>$100 - 249</td>
+            <td>Patron</td>
+            <td>
+
+                Listed on website as patron<br />
+                Logo on website sponsor scroll.<br />
+                Speaking time at NMUG Meetings.<br />
+                
+
+            </td>
+
+        </tr>
+    </thead>
+</table>
+
+<p><b>Annualized value of donations will be used to determine sponsorship level for in-kind donations. </b></p>
+<p><b>Sponsor payment arrangements are available for Platinum and Gold sponsors. </b></p>
+<p><b>To become a sponsor please download a <a href="~/documents/NMUGSponsorshipForm.pdf" target="_blank">Sponsorship Form</a> to your hard drive.  Follow the instructions on the form and we will set your organization up ASAP upon receiving payment.</b></p>
+<p><b>Thanks for your support!</b></p>
+
+<p>&nbsp;</p>
+
+<h4><b>Our Sponsors</b></h4>
+<table class="table">
+    <thead>
+        <tr>
+            
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorLevel)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SponsorLevel)
+                </td>
+                
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
