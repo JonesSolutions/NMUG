@@ -240,9 +240,10 @@ C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\ManageController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\MeetingsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Controllers\MembershipsController.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\ApplicationDbContext.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170413235720_whateverjacobdidithink.cs
+C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170413235720_whateverjacobdidithink.Designer.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414014703_initial.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\20170414014703_initial.Designer.cs
-C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\ApplicationUser.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\Directors.cs
 C:\Users\jmurphy49\Source\Repos\NMUG-\NMUG\Models\DirectorSeedData.cs
