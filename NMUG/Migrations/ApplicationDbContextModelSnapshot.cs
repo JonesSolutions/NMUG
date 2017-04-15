@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using NMUG.Data;
 
-namespace NMUG.Data.Migrations
+namespace NMUG.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170413235720_whateverjacobdidithink")]
-    partial class whateverjacobdidithink
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -208,6 +207,8 @@ namespace NMUG.Data.Migrations
 
                     b.Property<DateTime>("JobPostDate");
 
+                    b.Property<string>("MakeWork");
+
                     b.Property<string>("ShortDescription");
 
                     b.HasKey("JobId");
@@ -248,6 +249,8 @@ namespace NMUG.Data.Migrations
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
+
+                    b.Property<string>("MakesWork");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired();

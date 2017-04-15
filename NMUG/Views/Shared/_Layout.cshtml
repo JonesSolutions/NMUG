@@ -37,7 +37,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Education</a></li>
                     <li><a asp-area="" asp-controller="Jobs" asp-action="Details">Jobs</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Sponsors</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Downloads</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="DownloadsView">Downloads</a></li>
                     <li><a asp-area="" asp-controller="Meetings" asp-action="Index">Meetings</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
@@ -74,8 +74,7 @@
 </html>
 
 <style>
-.navbar-brand
-img {
-    max-height: 60px;
-}
+    .navbar-brand img {
+        max-height: 60px;
+    }
 </style>

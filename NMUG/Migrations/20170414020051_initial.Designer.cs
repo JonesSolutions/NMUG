@@ -8,7 +8,7 @@ using NMUG.Data;
 namespace NMUG.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170414014703_initial")]
+    [Migration("20170414020051_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

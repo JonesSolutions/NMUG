@@ -48,6 +48,12 @@ namespace NMUG.Controllers
 
             return View();
         }
+        public IActionResult DownloadsView()
+        {
+
+            return View();
+        }
+
 
         public IActionResult Error()
         {
