@@ -20,14 +20,15 @@ namespace NMUG.Models
                 {
                     return;
                 }
-                context.Sponsor.AddRange(
+                
+                   context.Sponsor.AddRange(
                     new Sponsor
 
                     {
 
                         CompanyName = "Pizza 9",
                         SponsorLevel = "Platinum"
-                                     
+
                     },
                     new Sponsor
 
