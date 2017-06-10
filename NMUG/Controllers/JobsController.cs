@@ -91,7 +91,7 @@ namespace NMUG.Controllers
                 await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(jobs);
         }
@@ -100,6 +100,7 @@ namespace NMUG.Controllers
 
         // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
+            
         {
             if (id == null)
             {

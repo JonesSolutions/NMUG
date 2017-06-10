@@ -17,6 +17,7 @@ namespace NMUG.Models
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
         [Display(Name = "Email Address")]
