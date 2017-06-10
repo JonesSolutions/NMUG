@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
+using NMUG.Helpers;
 using NMUG.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
@@ -18,9 +19,10 @@ namespace NMUG.Controllers
 
         private IHostingEnvironment _environment;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context, IHostingEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
         public IActionResult Index()
         {
@@ -65,5 +67,16 @@ namespace NMUG.Controllers
         {
             return View();
         }
+        public IActionResult Upload()
+        {
+
+             return View();
+        }
+
+
+
     }
+
+
+
 }

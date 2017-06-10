@@ -74,6 +74,7 @@ namespace NMUG.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)/* , ICollection<IFormFile> files)*/
         {
             if (ModelState.IsValid)
@@ -155,6 +156,7 @@ namespace NMUG.Controllers
                 }
                 return RedirectToAction("Index");
             }
+            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle");
             return View(directors);
         }
 
@@ -177,6 +179,7 @@ namespace NMUG.Controllers
         }
 
         // POST: Directors/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]
