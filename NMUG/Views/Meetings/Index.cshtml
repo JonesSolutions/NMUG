@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Meeting List</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,16 +13,17 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.dateTime)
+                Date, Time
+                @*@Html.DisplayNameFor(model => model.dateTime)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MeetingDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MeetingLocation)
+                @Html.DisplayNameFor(model => model.MeetingPresenter)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MeetingPresenter)
+                @Html.DisplayNameFor(model => model.MeetingLocation)
             </th>
 
             <th></th>
