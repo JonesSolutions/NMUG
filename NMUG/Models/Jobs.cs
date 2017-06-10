@@ -37,7 +37,8 @@ namespace NMUG.Models
         public string FileName { get; set; }
         public string MakeWork { get; set; }
 
-        [NotMapped]        
+        [NotMapped]    
+        // This is not mapped to DB
         public string DisplayFileName {
             get { return System.IO.Path.GetFileName(FileName); } 
             private set { } }
