@@ -177,15 +177,23 @@ namespace NMUG.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(75);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<int>("TitleID");
 
@@ -271,9 +279,15 @@ namespace NMUG.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CompanyName");
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("SponsorLevel");
+                    b.Property<string>("SponserLevel");
+
+                    b.Property<string>("SponsorLevel")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.HasKey("ID");
 
