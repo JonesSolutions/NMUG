@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NMUG.Models
 {
@@ -23,9 +24,15 @@ namespace NMUG.Models
 
         [Display(Name = "Active Posting")]
         public bool ActiveIn { get; set; }
+
+        [Display(Name ="File Name")]
         public string FileName { get; set; }
         public string MakeWork { get; set; }
 
+        [NotMapped]        
+        public string DisplayFileName {
+            get { return System.IO.Path.GetFileName(FileName); }
+            private set { } }
 
     }
 }

@@ -88,25 +88,15 @@ namespace NMUG.Controllers
         {
             if (ModelState.IsValid)
             {
-                var uploads = Path.Combine(_environment.WebRootPath, "uploads");
-                foreach (var file in files)
-                {
-                    if (file.Length > 0)
-                    {
-                        using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
-                        {
-                            await file.CopyToAsync(fileStream);
-                            jobs.FileName = file.FileName;
-                        }
-
-                    }
-                }
+                await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(jobs);
         }
+
+       
 
         // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)

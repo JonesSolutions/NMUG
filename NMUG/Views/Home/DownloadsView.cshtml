@@ -1,4 +1,4 @@
-@model IEnumerable<NMUG.Controllers.HomeController>
+@model IEnumerable<NMUG.Models.Jobs>
 
 @{
     ViewData["Title"] = "DownloadsView";
@@ -10,6 +10,13 @@
     <li><a class="text-muted" href="http://www.nmug.net/ASP%20Net%20Core.pptx"> ASP.Net Core 1.0</a> - Dave Waldron - February 4, 2016</li>
     <li><a class="text-muted" href="http://www.nmug.net/Database%20Projects%20in%20Visual%20Studio.pptx"> Database Projects in Visual Studio</a> - John Canavan - November 5, 2015</li>
     <li><a class="text-muted" href="http://www.nmug.net/Unit%20Testing%20and%20Test%20Driven%20Design.pptx"> Unit Testing and Test Driven Design</a> - Dave Waldron - February 5, 2015</li>
+    
 </ul>
 
-
+<h2>Files</h2>
+<ul>
+    @foreach (var jobs in Jobs)
+    {
+        <li>@Html.DisplayFor(jobs => jobs.DisplayFileName)</li>
+    }
+</ul>

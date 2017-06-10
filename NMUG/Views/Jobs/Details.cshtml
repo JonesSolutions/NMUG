@@ -20,13 +20,6 @@
         @foreach (var item in Model)
         {
             <dl class="dl-horizontal">
-
-                @*<dt>
-                        @Html.DisplayNameFor(model => item.ActiveIn)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => item.ActiveIn)
-                    </dd>*@
                 <dt>
                     @Html.DisplayNameFor(model => item.JobPostDate)
                 </dt>
@@ -46,14 +39,20 @@
                     @Html.DisplayFor(model => item.ShortDescription)
                 </dd>
                 <dt>
-                    @*@Html.DisplayNameFor(model => item.FileName)*@
-
+                    @Html.DisplayNameFor(model => item.ActiveIn)
                 </dt>
                 <dd>
-                    <a href = "@Url.Content("~/uploads/"+ item.FileName)" >@Html.DisplayFor(model => item.FileName)</a>
+                    @Html.DisplayFor(model => item.ActiveIn)
                 </dd>
-
+                <dt>
+                    @Html.DisplayNameFor(model => item.FileName)
+                </dt>
+                <dd>
+                    <a href="@Url.Content("~/uploads/"+ item.FileName)">@Html.DisplayFor(model => item.DisplayFileName)</a>
+                </dd>
+                
             </dl>
+
         }
     }
 </div>
