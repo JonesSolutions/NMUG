@@ -37,6 +37,7 @@ namespace NMUG.Models
         [Required]
         public int TitleID { get; set; }
         [ForeignKey("TitleID")]
+        [Display(Name = "Title")]
         public Title title { get; set; }
         
         [Required]

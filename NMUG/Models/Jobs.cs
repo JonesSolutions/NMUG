@@ -39,7 +39,7 @@ namespace NMUG.Models
 
         [NotMapped]        
         public string DisplayFileName {
-            get { return System.IO.Path.GetFileName(FileName); }
+            get { return System.IO.Path.GetFileName(FileName); } 
             private set { } }
 
     }

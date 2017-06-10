@@ -10,7 +10,7 @@ namespace NMUG.Models
     {
 
         [Key]
-
+        [Display(Name = "Title")]
         public int TitleID { get; set; }
         [Display(Name = "Title")]
         public string jobTitle { get; set; }
