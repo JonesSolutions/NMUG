@@ -213,13 +213,16 @@ namespace NMUG.Migrations
 
                     b.Property<string>("FileName");
 
-                    b.Property<string>("JobName");
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasMaxLength(250);
 
                     b.Property<DateTime>("JobPostDate");
 
                     b.Property<string>("MakeWork");
 
-                    b.Property<string>("ShortDescription");
+                    b.Property<string>("ShortDescription")
+                        .IsRequired();
 
                     b.HasKey("JobId");
 
@@ -282,8 +285,6 @@ namespace NMUG.Migrations
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasMaxLength(50);
-
-                    b.Property<string>("SponserLevel");
 
                     b.Property<string>("SponsorLevel")
                         .IsRequired()

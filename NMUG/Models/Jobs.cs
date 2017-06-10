@@ -29,7 +29,6 @@ namespace NMUG.Models
         [Display(Name = "Brief Description")]
         public string ShortDescription { get; set; }
 
-        [DefaultValue(true)]
         [Display(Name = "Active Posting")]
         public bool ActiveIn { get; set; }
         public string FileName { get; set; }
