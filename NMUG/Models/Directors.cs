@@ -35,6 +35,7 @@ namespace NMUG.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name ="Title")]
         public int TitleID { get; set; }
         [ForeignKey("TitleID")]
         public Title title { get; set; }

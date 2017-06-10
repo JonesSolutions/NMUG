@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
  
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
@@ -10,6 +10,15 @@
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
+ 
+  <ItemGroup>
+    <Compile Remove="Migrations\20170415210332_initial.cs" />
+    <Compile Remove="Migrations\20170415210332_initial.Designer.cs" />
+    <Compile Remove="Migrations\20170610123437_AddingModels.cs" />
+    <Compile Remove="Migrations\20170610123437_AddingModels.Designer.cs" />
+    <Compile Remove="Migrations\20170610124439_AddingModels2.cs" />
+    <Compile Remove="Migrations\20170610124439_AddingModels2.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="wwwroot\**\*">

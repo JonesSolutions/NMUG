@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Internal.Networking;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NMUG.Controllers
 {
@@ -57,18 +58,20 @@ namespace NMUG.Controllers
         }
 
         // GET: Directors/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle");
             return View();
         }
 
-        
+
 
 
         // POST: Directors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)/* , ICollection<IFormFile> files)*/
@@ -93,14 +96,15 @@ namespace NMUG.Controllers
                 _context.Add(directors);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-}
-ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", directors.TitleID);
+            }
+            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", directors.TitleID);
             return View(directors);
         }
 
 
 
         // GET: Directors/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -113,15 +117,18 @@ ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", dire
             {
                 return NotFound();
             }
+            ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle");
             return View(directors);
         }
 
         // POST: Directors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,Email,FirstName,LastName")] Directors directors)
+        [Authorize]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)
         {
             if (id != directors.ID)
             {
@@ -152,6 +159,7 @@ ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", dire
         }
 
         // GET: Directors/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -171,6 +179,7 @@ ViewData["TitleID"] = new SelectList(_context.Title, "TitleID", "jobTitle", dire
         // POST: Directors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var directors = await _context.Directors.SingleOrDefaultAsync(m => m.ID == id);
