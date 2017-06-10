@@ -11,6 +11,7 @@ namespace NMUG.Models
         public int ID { get; set; }
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
+
         [Display(Name = "Sponsor Level")]
         public string SponsorLevel { get; set; }
     }

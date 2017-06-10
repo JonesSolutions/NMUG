@@ -26,8 +26,7 @@ namespace NMUG.Models
         
         [Display(Name = "Presenter")]
         public string MeetingPresenter { get; set; }
-
-       
+               
         [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
         [StringLength(5000)]

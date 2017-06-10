@@ -37,15 +37,21 @@
         <div class="form-group">
             <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="ShortDescription" class="form-control" />
+                <textarea cols="200" rows="10" asp-for="ShortDescription" class="form-control" />
                 <span asp-validation-for="ShortDescription" class="text-danger" />
             </div>
         </div>
+    
+        @*<input type="file" name="files" multiple /> *@
+        @*<input type="submit" value="Upload" />*@
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Edit" class="btn btn-default" />
             </div>
         </div>
+
+
     </div>
 </form>
 

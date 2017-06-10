@@ -103,13 +103,14 @@ namespace NMUG.Controllers
                 }
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(jobs);
         }
 
         // GET: Jobs/Edit/5
         public async Task<IActionResult> Edit(int? id)
+            
         {
             if (id == null)
             {
