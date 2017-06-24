@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-<form asp-action="Edit">
+<form asp-action="Edit" enctype="multipart/form-data">
     <div class="form-horizontal">
         <h4>Jobs</h4>
         <hr />
@@ -41,14 +41,21 @@
                 <span asp-validation-for="ShortDescription" class="text-danger" />
             </div>
         </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => Model.FileName)
+            </dt>
+            <dd>
+                <a href="@Url.Content("~/uploads/"+ Model.FileName)">@Html.DisplayFor(model => Model.DisplayFileName)</a>
+            </dd>
+        </div>
         <div class="form-group">
             <label asp-for="FileName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="FileName" class="form-control" />
                 <input type="file" name="files" multiple />
-                <span asp-validation-for="FileName" class="text-danger" />
-            </div>
-        </div>
+                <br />
+          </div>
+        </div><br /><br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Edit" class="btn btn-default" />

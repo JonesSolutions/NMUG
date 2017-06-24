@@ -38,6 +38,10 @@ namespace NMUG.Models
         [DataType(DataType.MultilineText)]
         [StringLength(5000)]
         public string MeetingDescription { get; set; }
+        
+        //TODO: dotnet ef migrations add -c 
+        [Display(Name = "File Name")]
+        public string FileName { get; set; }
 
         [Display(Name = "Date")]
         public string dateTime

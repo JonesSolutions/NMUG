@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-<form asp-action="Edit">
+<form asp-action="Edit"  enctype="multipart/form-data">
     <div class="form-horizontal">
         <h4>Meeting</h4>
         <hr />
@@ -45,6 +45,13 @@
             <div class="col-md-10">
                 <input asp-for="MeetingLocation" class="form-control" />
                 <span asp-validation-for="MeetingLocation" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FileName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input type="file" name="files" multiple />
+                <br />
             </div>
         </div>
         <div class="form-group">
