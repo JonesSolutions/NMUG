@@ -84,7 +84,9 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
+        public async Task<IActionResult> Create(
+            [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, 
+            ICollection<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
@@ -127,7 +129,9 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
+        public async Task<IActionResult> Edit(int id, 
+            [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs,
+            ICollection<IFormFile> files)
         {
             if (id != jobs.JobId)
             {

@@ -23,20 +23,21 @@ namespace NMUG.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "Please Provide an Email Address.")]
+        [Required(ErrorMessage = "Please provide a Email Address.")]
         [Display(Name = "Email Address")]
         [EmailAddress]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Please provide a Phone Number")]
+        [Required(ErrorMessage = "Please provide a Phone Number.")]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
+        //TODO: Add to view and controller
         [Display(Name ="Start Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:MM/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "0:MM/yyyy")]
         public DateTime StartDate { get; internal set; }
 
+        //TODO: Add to view and controller
         [Display(Name = "Current Member")]
         public bool IsCurrent { get; internal set; }
 
@@ -48,6 +49,7 @@ namespace NMUG.Models
                 return FirstName + " " + LastName;
             }
         }
-        
+
+
     }
 }
