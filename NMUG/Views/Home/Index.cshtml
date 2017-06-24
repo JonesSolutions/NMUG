@@ -24,7 +24,7 @@
             }
             else
             {
-             @Model.FirstOrDefault().dateTime.ToString()
+             @Model.FirstOrDefault().MeetingDate.ToString()
 
             }
         </div>
@@ -62,6 +62,8 @@
     <div class="col-sm-2"></div>
 </div>
 <div class="page-header"></div>
+
+<!-- REMOVED MAP - NO LONGER THE MEETING LOCATION - Marianne 6/24/17
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 well">
@@ -69,8 +71,10 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
+	-->
 
 
+<!--  TODO - Replace this when the NMUG Agenda is available - Marianne 6/24/17
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
@@ -79,7 +83,9 @@
         </div>
     </div>
     <div class="col-sm-2"></div>
-</div>
+</div>	
+	-->
+
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
@@ -90,8 +96,11 @@
             <thead>
                 <tr>
                     <th>
-                        <h4>Date and Time</h4>
+                        <h4>Date</h4>
                     </th>
+					<th>
+						<h4>Time</h4>
+					</th>
                     <th>
                         <h4>Location</h4>
                     </th>
@@ -109,8 +118,11 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.dateTime)
+                            @Html.DisplayFor(modelItem => item.MeetingDate)
                         </td>
+						<td>
+							@Html.DisplayFor(modelItem => item.FromTo)
+						</td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MeetingLocation)
                         </td>

@@ -15,27 +15,40 @@ namespace NMUG.Helpers
 
         //private static IHostingEnvironment _environment;
 
-        internal static async Task UploadFile(Models.Jobs jobs, ICollection<IFormFile> files, IHostingEnvironment environment)
+        internal static async Task<string> UploadFile(ICollection<IFormFile> files, IHostingEnvironment environment)
         {
 
-
             var uploads = Path.Combine(environment.WebRootPath, "uploads");
+            string fileNameString = String.Empty;
             foreach (var file in files)
             {
                 if (file.Length > 0)
                 {
-                    using (var fileStream = new FileStream(Path.Combine(uploads, 
-                        System.IO.Path.GetFileName(file.FileName)), 
-                        FileMode.Create))
+                    using (var fileStream = new FileStream(Path.Combine(uploads, System.IO.Path.GetFileName(file.FileName)), FileMode.Create))
                     {
-                        await   file.CopyToAsync(fileStream);
-                        jobs.FileName = System.IO.Path.GetFileName(file.FileName);
+                        await file.CopyToAsync(fileStream);
+                        fileNameString = System.IO.Path.GetFileName(file.FileName);
                     }
 
                 }
+
             }
+
+            return fileNameString;
         }
 
+        internal static string UploadFile(ICollection<IFormFile> files)
+        {
+            string fileNameString = String.Empty;
+            foreach (var file in files)
+            {
+                if (file.Length > 0)
+                {
+                 fileNameString = System.IO.Path.GetFileName(file.FileName);
+                }
 
+            }
+            return fileNameString;
+        }
     }
 }

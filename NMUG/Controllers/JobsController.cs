@@ -90,13 +90,17 @@ namespace NMUG.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (files != null )
-                { 
-                await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+                if (files != null)
+                {
+                    await NMUG.Helpers.Upload.UploadFile(files, _environment);
+                    jobs.FileName = NMUG.Helpers.Upload.UploadFile(files);
+
                 }
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details");
+
+                
             }
             return View(jobs);
         }
@@ -136,12 +140,16 @@ namespace NMUG.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
-                    if (files != null)
+                  
+                  if (files != null)
                     {
-                        await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+                        await NMUG.Helpers.Upload.UploadFile(files, _environment);
+                        jobs.FileName = NMUG.Helpers.Upload.UploadFile(files);
                     }
+
                     _context.Update(jobs);
                     await _context.SaveChangesAsync();
                 }
@@ -156,7 +164,7 @@ namespace NMUG.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(jobs);
         }

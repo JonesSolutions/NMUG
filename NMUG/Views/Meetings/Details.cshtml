@@ -1,10 +1,10 @@
 @model NMUG.Models.Meeting
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Meeting Details";
 }
 
-<h2>Details</h2>
+<h2>Meeting Details</h2>
 
 <div>
     <h4>Meeting</h4>
@@ -17,10 +17,10 @@
             @Html.DisplayFor(model => model.MeetingDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.MeetingTime)
+            @Html.DisplayNameFor(model => model.FromTo)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.MeetingTime)
+            @Html.DisplayFor(model => model.FromTo)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.MeetingDescription)
@@ -40,7 +40,14 @@
         <dd>
             @Html.DisplayFor(model => model.MeetingLocation)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+        <dd>
+            <a href="@Url.Content("~/uploads/" + Model.FileName)">@Html.DisplayFor(model => model.FileName)</a>
+        </dd>
     </dl>
+    
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

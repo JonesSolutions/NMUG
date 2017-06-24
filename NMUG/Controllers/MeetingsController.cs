@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
 using NMUG.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using NMUG.Helpers;
 
 namespace NMUG.Controllers
 {
     public class MeetingsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IHostingEnvironment _environment;
 
-        public MeetingsController(ApplicationDbContext context)
+        public MeetingsController(ApplicationDbContext context,  IHostingEnvironment environment)
         {
-            _context = context;    
+            _context = context;
+            _environment = environment;
         }
 
         // GET: Meetings
@@ -53,10 +59,19 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingTime")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files)
         {
+
             if (ModelState.IsValid)
             {
+
+                if (files != null)
+                {
+                    await Upload.UploadFile(files, _environment);
+                    meeting.FileName = Upload.UploadFile(files);
+
+                }
+
                 _context.Add(meeting);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -85,8 +100,9 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingTime")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files)
         {
+
             if (id != meeting.Id)
             {
                 return NotFound();
@@ -94,8 +110,16 @@ namespace NMUG.Controllers
 
             if (ModelState.IsValid)
             {
+        
                 try
                 {
+                    if (files != null)
+
+                        { 
+                         await Upload.UploadFile(files, _environment);
+                         meeting.FileName = Upload.UploadFile(files);
+                        }
+
                     _context.Update(meeting);
                     await _context.SaveChangesAsync();
                 }

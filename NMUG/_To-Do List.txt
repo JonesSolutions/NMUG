@@ -7,9 +7,9 @@ Not allow duplicate entries for roles
 
 Meetings:
 Start time and End time
-Separate Date and time from columns
+marianne - Separate Date and time from columns
 When post a meeting, we tweet, facebook, and update meetup
-Add document upload to meetings
+tpreston3 - Add document upload to meetings
 RSVP List?
 Link to Meetup?
 Google maps to location?
