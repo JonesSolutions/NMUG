@@ -9,6 +9,8 @@ Meetings:
 Start time and End time
 Separate Date and time from columns
 When post a meeting, we tweet, facebook, and update meetup
+Add document upload to meetings
+
 
 Members:
 Fix Model for requireed fields and formating
@@ -17,8 +19,16 @@ Convert Members to Identity model
 Update Controller and View to handle Start date and current member
 
 
+
 Controllers:
 Add authorization to all CUD operations
 
 Jobs:
 Add LInk to Uploaded file to Admin index
+
+Remove upload and Download links from main menu
+
+File Upload
+Limit file upload to one file currently
+As time permits modify to handle multiple files.
+thumbnail view of document
