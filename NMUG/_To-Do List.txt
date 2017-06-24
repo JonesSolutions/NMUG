@@ -9,5 +9,12 @@ Meetings:
 Start time and End time
 Separate Date and time from columns
 When post a meeting, we tweet, facebook, and update meetup
+RSVP List?
+Link to Meetup?
+Google maps to location?
+Zoom meeting info?
+Contacts us for more info link?
 
+
+Home Page: Meetings are no longer held at the location indicated by the map on the home page
 
