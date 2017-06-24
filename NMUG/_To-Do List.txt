@@ -16,6 +16,8 @@ Google maps to location?
 Zoom meeting info?
 Contacts us for more info link?
 
+Members:
+Fix models
 
 Home Page: Meetings are no longer held at the location indicated by the map on the home page
 Members:

@@ -30,17 +30,24 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Description" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
             <label asp-for="Email" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RoleDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea cols="200" rows="10" asp-for="RoleDescription" class="form-control"></textarea>
+                <span asp-validation-for="RoleDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Biography" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea cols="500" rows="10" asp-for="Biography" class="form-control"></textarea>
+                <span asp-validation-for="Biography" class="text-danger" />
             </div>
         </div>
     </div>

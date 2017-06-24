@@ -24,15 +24,19 @@ namespace NMUG.Models
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(75, ErrorMessage = "Please enter a shorter description. Maximum 75 characters.")]
-        [RegularExpression(@"^[A-Z].*$")]
-        public string Description { get; set; }
-
-        [Required]
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [StringLength(50, ErrorMessage = "Please enter a shorter email address. Maximum 50 characters.")]
         public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "Please enter a shorter Role Description. Maximum 100 characters.")]
+        [RegularExpression(@"^[A-Z].*$")]
+        public string RoleDescription { get; set; }
+
+        [Required]
+        [StringLength(500, ErrorMessage = "Please enter a shorter Biography. Maximum 500 characters.")]
+        public string Biography { get; set; }
 
         [Required]
         [Display(Name ="Title")]
