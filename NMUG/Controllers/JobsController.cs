@@ -84,11 +84,17 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
+        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName,FileName")] Jobs jobs, ICollection<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
                 await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+
+                foreach(var file in files)
+                {
+                    jobs.FileName = file.Name;
+                }
+              
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details");
