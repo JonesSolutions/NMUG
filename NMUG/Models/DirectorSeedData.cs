@@ -27,26 +27,31 @@ namespace NMUG.Models
                         TitleID = context.Title.Where(t => t.jobTitle == "President").FirstOrDefault().TitleID,
                         FirstName = "Tom",
                         LastName = "Murdock",
-                        Description = "Responsible for just about everything.  Liason with INETA, Microsoft, and sponsors.",
-                        Email = "tom.murdock@nmug.net"
+                        Email = "tom.murdock@nmug.net",
+                        RoleDescription = "Responsible for just about everything.  Liason with INETA, Microsoft, and sponsors.",
+                        Biography = ""
+
                     },
                      new Directors
                      {
                          TitleID = context.Title.Where(t => t.jobTitle == "Secretary").FirstOrDefault().TitleID,
                          FirstName = "Ludwig",
                          LastName = "Puchmayer",
-                         Description = "Corporate Secretary for the New Mexico.NET Users Group",
-                         Email = "ludwig.puchmayer@nmug.net"
-                     
-                      
-                    },
+                         Email = "ludwig.puchmayer@nmug.net",
+                         RoleDescription = "Corporate Secretary for the New Mexico.NET Users Group",
+                         Biography = ""
+
+
+                     },
                      new Directors
                      {
                          TitleID = context.Title.Where(t => t.jobTitle == "Education and Program Director").FirstOrDefault().TitleID,
                          FirstName = "Randy",
                          LastName = "Fuller",
-                         Description = "Responsible for the education programs sponsored by the New Mexico .NET Users Group.  Arranges speakers for the monthly meetings.",
-                         Email = "randy.fuller@nmug.net"
+                         Email = "randy.fuller@nmug.net",
+                         RoleDescription = "Responsible for the education programs sponsored by the New Mexico .NET Users Group.  Arranges speakers for the monthly meetings.",
+                         Biography = ""
+                         
 
 
                      }

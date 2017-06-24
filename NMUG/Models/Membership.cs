@@ -9,8 +9,10 @@ namespace NMUG.Models
     public class Membership
     {
         public int ID { get; set; }
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
+        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Display(Name = "Street Address")]
@@ -20,14 +22,22 @@ namespace NMUG.Models
         [Display(Name = "Zip Code")]
         public string ZipCode { get; set; }
 
+        [Required(ErrorMessage = "Please provide an Email Address.")]
         [Display(Name = "Email Address")]
         [EmailAddress]
         public string Email { get; set; }
-        [Required(ErrorMessage = "You must provide a Phone Number")]
+        [Required(ErrorMessage = "Please provide a Phone Number")]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         //[RegularExpression(@"^\(?[0-9]{3})\)[-. ]?(0-9]{3})[-. ]?(0-9]{4}$", ErrorMessage = "Not a valid phone number")]
         public string PhoneNumber { get; set; }
+
+        [Display(Name ="Start Date")]
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "0:MM/yyyy")]
+        public DateTime StartDate { get; internal set; }
+
+        [Display(Name = "Current Member")]
+        public bool IsCurrent { get; internal set; }
 
         [Display(Name = "Name")]
         public string FullName

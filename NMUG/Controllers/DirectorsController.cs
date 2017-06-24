@@ -75,7 +75,7 @@ namespace NMUG.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)/* , ICollection<IFormFile> files)*/
+        public async Task<IActionResult> Create([Bind("ID,RoleDescription,Email,FirstName,LastName,TitleID,Biography")] Directors directors)/* , ICollection<IFormFile> files)*/
         {
             if (ModelState.IsValid)
             {
@@ -129,7 +129,7 @@ namespace NMUG.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,Email,FirstName,LastName,TitleID")] Directors directors)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,RoleDescription,Email,FirstName,LastName,TitleID, Biography")] Directors directors)
         {
             if (id != directors.ID)
             {
