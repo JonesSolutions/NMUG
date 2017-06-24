@@ -9,7 +9,34 @@ Meetings:
 Start time and End time
 Separate Date and time from columns
 When post a meeting, we tweet, facebook, and update meetup
+Add document upload to meetings
+RSVP List?
+Link to Meetup?
+Google maps to location?
+Zoom meeting info?
+Contacts us for more info link?
 
 Members:
 Fix models
 
+Home Page: Meetings are no longer held at the location indicated by the map on the home page
+Members:
+Fix Model for requireed fields and formating
+Need a edit member list
+Convert Members to Identity model
+Update Controller and View to handle Start date and current member
+
+
+
+Controllers:
+Add authorization to all CUD operations
+
+Jobs:
+Add LInk to Uploaded file to Admin index
+
+Remove upload and Download links from main menu
+
+File Upload
+Limit file upload to one file currently
+As time permits modify to handle multiple files.
+thumbnail view of document
