@@ -19,15 +19,17 @@ namespace NMUG.Helpers
         {
 
 
-            var uploads = Path.Combine(environment.ContentRootPath, "uploads");
+            var uploads = Path.Combine(environment.WebRootPath, "uploads");
             foreach (var file in files)
             {
                 if (file.Length > 0)
                 {
-                    using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                    using (var fileStream = new FileStream(Path.Combine(uploads, 
+                        System.IO.Path.GetFileName(file.FileName)), 
+                        FileMode.Create))
                     {
-                        await file.CopyToAsync(fileStream);
-                        jobs.FileName = file.FileName;
+                        await   file.CopyToAsync(fileStream);
+                        jobs.FileName = System.IO.Path.GetFileName(file.FileName);
                     }
 
                 }
