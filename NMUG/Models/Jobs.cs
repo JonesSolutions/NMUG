@@ -18,7 +18,7 @@ namespace NMUG.Models
         [Display(Name = "Job Title")]
         public string JobName { get; set; }
 
-        [Required(ErrorMessage = "Please enter a valid date. (MM-dd-YYYY)")]
+        [Required(ErrorMessage = "Please enter a valid date. (MM-DD-YYYY)")]
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         //[DataType(DataType.Date, ErrorMessage = "Please enter a valid date. (YYYY-MM-dd)")]
         // [Range(typeof(DateTime),"2017/01/01","2099/12/31")] 

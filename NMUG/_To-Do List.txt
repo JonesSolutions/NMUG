@@ -40,3 +40,19 @@ File Upload
 Limit file upload to one file currently
 As time permits modify to handle multiple files.
 thumbnail view of document
+
+Facebook API - Jasmine
+What is the method of authentication they use
+What is the URL to the Developer API information
+Which API calls do you feel are required to post a new meeting to a Facebook 
+
+Twtter API - Thad
+What is the method of authentication they use
+What is the URL to the Developer API information
+Which API calls do you feel are required to post a new meeting to a tweet
+
+Marianne API - Marianne
+What is the method of authentication they use
+What is the URL to the Developer API information
+Which API calls do you feel are required to update a scheduled meeting
+Which API calls do you feel are required to create a new meeting

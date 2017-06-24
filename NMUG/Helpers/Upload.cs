@@ -24,10 +24,12 @@ namespace NMUG.Helpers
             {
                 if (file.Length > 0)
                 {
-                    using (var fileStream = new FileStream(Path.Combine(uploads, System.IO.Path.GetFileName(file.FileName)), FileMode.Create))
+                    using (var fileStream = new FileStream(Path.Combine(uploads, 
+                        System.IO.Path.GetFileName(file.FileName)), 
+                        FileMode.Create))
                     {
-                        await file.CopyToAsync(fileStream);
-                        jobs.FileName =  System.IO.Path.GetFileName(file.FileName);
+                        await   file.CopyToAsync(fileStream);
+                        jobs.FileName = System.IO.Path.GetFileName(file.FileName);
                     }
 
                 }
