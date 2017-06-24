@@ -10,4 +10,6 @@ Start time and End time
 Separate Date and time from columns
 When post a meeting, we tweet, facebook, and update meetup
 
+Members:
+Fix models
 
