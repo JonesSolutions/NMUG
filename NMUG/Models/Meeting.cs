@@ -58,9 +58,7 @@ namespace NMUG.Models
 				return MeetingStartTime + " - " + MeetingEndTime;
 			}
 		}
-		[Display(Name = "File Name")]
-		public string FileName { get; set; }
-		// public string MakeWork { get; set; }
+		
 
 		[NotMapped]
 		// This is not mapped to DB
