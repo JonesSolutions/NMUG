@@ -88,7 +88,10 @@ namespace NMUG.Controllers
         {
             if (ModelState.IsValid)
             {
-                await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+				if (files != null)
+				{
+					await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+				}				
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details");
@@ -120,7 +123,7 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs)
+        public async Task<IActionResult> Edit(int id, [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
         {
             if (id != jobs.JobId)
             {
@@ -130,8 +133,12 @@ namespace NMUG.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    _context.Update(jobs);
+				{
+					if (files != null)
+					{
+						await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
+					}
+					_context.Update(jobs);					
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

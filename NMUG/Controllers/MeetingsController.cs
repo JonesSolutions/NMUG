@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NMUG.Data;
 using NMUG.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace NMUG.Controllers
 {
@@ -53,7 +54,7 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingTime")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingTime")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files)
         {
             if (id != meeting.Id)
             {

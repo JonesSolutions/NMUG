@@ -20,12 +20,19 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="MeetingTime" class="col-md-2 control-label"></label>
+            <label asp-for="MeetingStartTime" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="MeetingTime" class="form-control" />
-                <span asp-validation-for="MeetingTime" class="text-danger" />
+                <input asp-for="MeetingStartTime" class="form-control" />
+                <span asp-validation-for="MeetingStartTime" class="text-danger" />
             </div>
         </div>
+		<div class="form-group">
+			<label asp-for="MeetingEndTime" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="MeetingEndTime" class="form-control" />
+				<span asp-validation-for="MeetingEndTime" class="text-danger" />
+			</div>
+		</div>
         <div class="form-group">
             <label asp-for="MeetingDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
