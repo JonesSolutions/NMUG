@@ -84,17 +84,23 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
+        public async Task<IActionResult> Create(
+            [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, 
+            ICollection<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
-				if (files != null)
-				{
-					await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
-				}				
+                if (files != null)
+                {
+                    await NMUG.Helpers.Upload.UploadFile(files, _environment);
+                    jobs.FileName = NMUG.Helpers.Upload.UploadFile(files);
+
+                }
                 _context.Add(jobs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details");
+
+                
             }
             return View(jobs);
         }
@@ -123,7 +129,9 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs, ICollection<IFormFile> files)
+        public async Task<IActionResult> Edit(int id, 
+            [Bind("JobId,ActiveIn,JobPostDate,ShortDescription,JobName")] Jobs jobs,
+            ICollection<IFormFile> files)
         {
             if (id != jobs.JobId)
             {
@@ -132,13 +140,17 @@ namespace NMUG.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
-				{
-					if (files != null)
-					{
-						await NMUG.Helpers.Upload.UploadFile(jobs, files, _environment);
-					}
-					_context.Update(jobs);					
+                {
+                  
+                  if (files != null)
+                    {
+                        await NMUG.Helpers.Upload.UploadFile(files, _environment);
+                        jobs.FileName = NMUG.Helpers.Upload.UploadFile(files);
+                    }
+
+                    _context.Update(jobs);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -152,7 +164,7 @@ namespace NMUG.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(jobs);
         }

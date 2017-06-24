@@ -31,6 +31,10 @@ namespace NMUG.Models
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
 		//[DataType(DataType.Time, ErrorMessage = "Please enter a valid time (HH:MM AM|PM)")]
 		public string MeetingEndTime { get; set; }
+        
+        //TODO: dotnet ef migrations add -c 
+        [Display(Name = "File Name")]
+        public string FileName { get; set; }
 
 		[Display(Name = "Location")]
 		[RegularExpression(@"^[A-Z|\d]+[a-zA-Z''-'\d\s]*$", ErrorMessage = "First letter must be a capital letter or digit.")]

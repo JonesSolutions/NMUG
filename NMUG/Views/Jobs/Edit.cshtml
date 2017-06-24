@@ -11,7 +11,7 @@
         <h4>Jobs</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="JobId" />
+        <input type="hidden" asp-for="JobId" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
@@ -41,31 +41,35 @@
                 <span asp-validation-for="ShortDescription" class="text-danger" />
             </div>
         </div>
-		<dl>
-		<dt>
-			@Html.DisplayNameFor(model => Model.FileName)
-		</dt>
-		<dd>
-			<a href="@Url.Content("~/uploads/"+ Model.FileName)">@Html.DisplayFor(model => Model.DisplayFileName)</a>
-		</dd>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => Model.FileName)
+            </dt>
+            <dd>
+                <a href="@Url.Content("~/uploads/"+ Model.FileName)">@Html.DisplayFor(model => Model.DisplayFileName)</a>
+            </dd>
+        </dl>
+        <div class="form-group">
+            <label asp-for="FileName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input type="file" name="files" multiple />
+                @*<input type="submit" value="Upload" />*@
+            </div>
+        </div>
+        <br /><br />
 
-		</dl>
-
-		<div class="form-group">
-			<label asp-for="FileName" class="col-md-2 control-label"></label>
-			<div class="col-md-10">
-				<input type="file" name="files" multiple />
-				@*<input type="submit" value="Upload" />*@
-			</div>
-		</div><br /><br />
-
+        <div class="form-group">
+            <label asp-for="FileName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input type="file" name="files" multiple />
+                <br />
+          </div>
+        </div><br /><br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Edit" class="btn btn-default" />
             </div>
         </div>
-
-
     </div>
 </form>
 
