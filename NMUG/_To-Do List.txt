@@ -1,0 +1,13 @@
+﻿Directors:
+
+Add Picture
+Add Bio (text box)
+Add Role Description
+Not allow duplicate entries for roles
+
+Meetings:
+Start time and End time
+Separate Date and time from columns
+When post a meeting, we tweet, facebook, and update meetup
+
+
