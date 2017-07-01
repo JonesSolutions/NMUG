@@ -1,0 +1,5 @@
+binobj.vsMigrationsbun/
+/NMUG/obj
+/NMUG/migration
+/.vs
+/NMUG/bin

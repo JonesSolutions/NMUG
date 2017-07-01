@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using NMUG.ValidationAttributes;
 
 namespace NMUG.Models
 {
@@ -43,6 +43,7 @@ namespace NMUG.Models
         public int TitleID { get; set; }
         [ForeignKey("TitleID")]
         [Display(Name = "Title")]
+        [ValidTitle(ErrorMessage = "The same Title cannot be entered twice.")]
         public Title title { get; set; }
         
         [Required]
