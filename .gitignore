@@ -1,0 +1,6 @@
+binobj.vsMigrationsbin/
+/NMUG/obj
+/NMUG/migration
+/.vs
+/NMUG/bin
+/NMUG/Migrations/ApplicationDbContextModelSnapshot.cs

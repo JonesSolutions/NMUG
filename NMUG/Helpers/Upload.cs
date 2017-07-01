@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,6 @@ namespace NMUG.Helpers
 {
     public class Upload
     {
-
         //private static IHostingEnvironment _environment;
 
         internal static async Task<string> UploadFile(ICollection<IFormFile> files, IHostingEnvironment environment)
@@ -31,8 +29,7 @@ namespace NMUG.Helpers
                     }
 
                 }
-
-            }
+             }
 
             return fileNameString;
         }
