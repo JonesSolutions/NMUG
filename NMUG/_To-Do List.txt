@@ -15,6 +15,7 @@ Link to Meetup?
 Google maps to location?
 Zoom meeting info?
 Contacts us for more info link?
+Meeting Details list for upcomnging meetings
 
 Members:
 Fix models
@@ -33,6 +34,7 @@ Add authorization to all CUD operations
 
 Jobs:
 Add LInk to Uploaded file to Admin index
+Remove extra file uploads from jobs
 
 Remove upload and Download links from main menu
 
