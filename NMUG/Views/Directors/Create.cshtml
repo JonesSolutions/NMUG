@@ -5,6 +5,8 @@
 }
 
 <h2>Create</h2>
+@Html.AntiForgeryToken()
+@Html.ValidationSummary()
 
 <form asp-action="Create">
     <div class="form-horizontal">
@@ -20,7 +22,9 @@
         <div class="form-group">
             <label asp-for="TitleID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
+                @Html.LabelFor(t => t.TitleID)
                 <select asp-for="TitleID" class="form-control" asp-items="ViewBag.TitleID"></select>
+                @Html.ValidationMessageFor(t => t.TitleID)
             </div>
         </div>
        
