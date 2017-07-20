@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using NMUG.Helpers;
+using NMUG.Services;
+using Tweetinvi;
+using Microsoft.Extensions.Options;
 
 namespace NMUG.Controllers
 {
@@ -18,11 +21,13 @@ namespace NMUG.Controllers
     {
         private readonly ApplicationDbContext _context;
         private IHostingEnvironment _environment;
+        private TwitterAuthAPI _params;
 
-        public MeetingsController(ApplicationDbContext context,  IHostingEnvironment environment)
+        public MeetingsController(ApplicationDbContext context,  IHostingEnvironment environment, IOptions<TwitterAuthAPI> butter)
         {
             _context = context;
             _environment = environment;
+            _params = butter.Value;
         }
 
         // GET: Meetings
@@ -59,7 +64,7 @@ namespace NMUG.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files)
+        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files, TwitterAuthAPI _params)
         {
 
             if (ModelState.IsValid)
@@ -67,12 +72,21 @@ namespace NMUG.Controllers
 
                 if (files != null)
                 {
-                    await Upload.UploadFile(files, _environment);
-                    meeting.FileName = Upload.UploadFile(files);
+                    await Helpers.Upload.UploadFile(files, _environment);
+                    meeting.FileName = Helpers.Upload.UploadFile(files);
 
                 }
 
                 _context.Add(meeting);
+
+                TweetSender tweetMeeting = new TweetSender(_params);
+                var tweet = meeting.MeetingDescription
+                        + " at " + meeting.MeetingLocation
+                        + " on " + meeting.MeetingDate.ToString("f")
+                        + " at " + meeting.MeetingStartTime;
+
+                tweetMeeting.PostTwitter(tweet);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -110,17 +124,26 @@ namespace NMUG.Controllers
 
             if (ModelState.IsValid)
             {
-        
-                try
+               try
                 {
                     if (files != null)
 
                         { 
-                         await Upload.UploadFile(files, _environment);
-                         meeting.FileName = Upload.UploadFile(files);
+                         await Helpers.Upload.UploadFile(files, _environment);
+                         meeting.FileName = Helpers.Upload.UploadFile(files);
                         }
 
                     _context.Update(meeting);
+
+                    TweetSender tweetMeeting = new TweetSender(_params);
+                    var updateTweet = "UPDATE:" 
+                        + meeting.MeetingDescription 
+                        + " at " + meeting.MeetingLocation 
+                        + " on " + meeting.MeetingDate.ToString("f")
+                        + " at " + meeting.MeetingStartTime;
+
+                    tweetMeeting.PostTwitter(updateTweet);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

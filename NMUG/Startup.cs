@@ -42,8 +42,15 @@ namespace NMUG
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+
+            //Add access to Twitter API keys in appsettings.json
+            services.AddOptions();
+            services.Configure<Models.TwitterAuthAPI>(Configuration.GetSection("TwitterAPIKeys"));
+
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -52,7 +59,6 @@ namespace NMUG
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -93,7 +99,7 @@ namespace NMUG
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
             TitleSeedData.Initialize(app.ApplicationServices);
-            DirectorSeedData.Initialize(app.ApplicationServices);
+           // DirectorSeedData.Initialize(app.ApplicationServices);
             SponsorSeedData.Initialize(app.ApplicationServices);
         }
     }
