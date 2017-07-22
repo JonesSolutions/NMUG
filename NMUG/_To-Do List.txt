@@ -66,10 +66,10 @@ What is the method of authentication they use
 What is the URL to the Developer API information
 	https://www.meetup.com/meetup_api/	
 Which API calls do you feel are required to update a scheduled meeting
-	GET /:urlname/events/:id
-	PATCH /:urlname/events/:id
+	GET /2/events/id
+	POST /2/events/id
 Which API calls do you feel are required to create a new meeting
-	POST /:urlname/events
+	POST /2/event/
 
 
 
