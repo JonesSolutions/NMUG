@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NMUG.Models
 {

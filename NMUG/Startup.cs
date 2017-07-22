@@ -51,6 +51,10 @@ namespace NMUG
             services.AddOptions();
             services.Configure<Models.TwitterAuthAPI>(Configuration.GetSection("TwitterAPIKeys"));
 
+            // Retrieve Meetup API keys from appsettings.json
+            services.Configure<Models.MeetupAPIAuthToken>(Configuration.GetSection("Meetup"));
+
+
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
