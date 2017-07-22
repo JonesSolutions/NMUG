@@ -55,6 +55,30 @@ Which API calls do you feel are required to post a new meeting to a tweet
 
 Marianne API - Marianne
 What is the method of authentication they use
+	Similar to OAuth signing, this method of authentication certifies that a request was approved by a particular user. 
+	Unlike OAuth-signed requests, key-signed requests may be reused and recycled as long as their corresponding API key 
+	is valid. If a signed URL is released to the public, any application can use it to interact with Meetup as if it had
+	that API key; the difference is that it can not change definitive parameters or use the signature against other API methods.
+	Because requests are signed with an API key as well as a Meetup private key, it is not possible for applications to
+	sign them independently. Instead they pass a "sign=true" parameter along with a standard read request authorized by 
+	an API key. This causes a "signed_url" field to be returned in the response metadata. OAuth requests may not be signed 
+	with an API key, as this would allow a consumer to continue act on behalf of a user even if its access token is revoked.
 What is the URL to the Developer API information
+	https://www.meetup.com/meetup_api/	
 Which API calls do you feel are required to update a scheduled meeting
+	GET /:urlname/events/:id
+	PATCH /:urlname/events/:id
 Which API calls do you feel are required to create a new meeting
+	POST /:urlname/events
+
+
+
+	Get upcoming events
+	https://api.meetup.com/2/events?key=6877d63f7e64473d25633777132142&group_urlname=NMUGMeetup&sign=true
+	NOTE: This is Marianne's key, which will be deactivated after the class concludes and this will no longer work
+	
+	POST a new event (This is a work in progress, the URL below isn't working as hoped... 7/22 MB)
+	https://api.meetup.com/2/event?key=6877d63f7e64473d25633777132142&group_id=1556336&group_urlname=Meetup-API-Testing&name=MonthlyMeeting&&duration=5400000&sign=true
+
+	Join Meetup Group
+	https://www.meetup.com/NMUGMeetup/join
