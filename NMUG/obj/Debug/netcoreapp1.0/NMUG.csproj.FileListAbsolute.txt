@@ -8,3 +8,13 @@ C:\Users\Thaddeus\Documents\Visual Studio 2017\Projects\NMUG\NMUG\obj\Debug\netc
 C:\Users\Thaddeus\Documents\Visual Studio 2017\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.dll
 C:\Users\Thaddeus\Documents\Visual Studio 2017\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.pdb
 C:\Users\Thaddeus\Documents\Visual Studio 2017\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\UserSecretsAssemblyInfo.cs
+C:\Users\mbjelke\Projects\NMUG\NMUG\bin\Debug\netcoreapp1.0\NMUG.deps.json
+C:\Users\mbjelke\Projects\NMUG\NMUG\bin\Debug\netcoreapp1.0\NMUG.runtimeconfig.json
+C:\Users\mbjelke\Projects\NMUG\NMUG\bin\Debug\netcoreapp1.0\NMUG.runtimeconfig.dev.json
+C:\Users\mbjelke\Projects\NMUG\NMUG\bin\Debug\netcoreapp1.0\NMUG.dll
+C:\Users\mbjelke\Projects\NMUG\NMUG\bin\Debug\netcoreapp1.0\NMUG.pdb
+C:\Users\mbjelke\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.csprojResolveAssemblyReference.cache
+C:\Users\mbjelke\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\UserSecretsAssemblyInfo.cs
+C:\Users\mbjelke\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.AssemblyInfo.cs
+C:\Users\mbjelke\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.dll
+C:\Users\mbjelke\Projects\NMUG\NMUG\obj\Debug\netcoreapp1.0\NMUG.pdb
