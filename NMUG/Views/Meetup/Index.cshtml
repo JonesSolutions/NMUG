@@ -5,7 +5,9 @@
 }
 
 <h2>Upcoming Events</h2>
-<h3>NOTE: Until appsettings.json is updated to show <b>NMUGMeetup</b> as the <b>MeetupGroup</b>, this list displays events from the group Meetup-API-Testing</h3>
+<h3>NOTE: This list displays events from the group <b>Meetup-API-Testing</b></h3>
+Settings for the NMUG Meetup group can be found in appsettings.json comments in the Meetup section.  You're welcome. 
+
 <p>
 
     @*<center><a href="https://www.meetup.com/NMUGMeetup/join" target="_blank"><img src="http://ateausa.org/wp-content/uploads/2016/04/meetup.png" /></a></center>*@
@@ -25,7 +27,6 @@
             <th>
                 RSVP'd YES
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -43,12 +44,8 @@
                     @Html.DisplayFor(modelItem => item.yes_rsvp_count)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.group.id)
-                </td>
-                <td>
                     @*<a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |*@
-                    <a href="@Html.DisplayFor(modelItem => item.event_url)" target="_blank">Details</a> |
-                    <a href="@Html.DisplayFor(modelItem => item.event_url)" target="_blank">RSVP</a>
+                    <a href="@Html.DisplayFor(modelItem => item.event_url)" target="_blank">Details & RSVP</a>
                     @*<a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
                 </td>
             </tr>}
