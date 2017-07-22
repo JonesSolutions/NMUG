@@ -82,7 +82,7 @@ namespace NMUG.Controllers
                 TweetSender tweetMeeting = new TweetSender(_params);
                 var tweet = meeting.MeetingDescription
                         + " at " + meeting.MeetingLocation
-                        + " on " + meeting.MeetingDate.ToString("f")
+                        + " on " + meeting.MeetingDate.ToString("D")
                         + " at " + meeting.MeetingStartTime;
 
                 tweetMeeting.PostTwitter(tweet);
@@ -139,7 +139,7 @@ namespace NMUG.Controllers
                     var updateTweet = "UPDATE:" 
                         + meeting.MeetingDescription 
                         + " at " + meeting.MeetingLocation 
-                        + " on " + meeting.MeetingDate.ToString("f")
+                        + " on " + meeting.MeetingDate.ToString("D")
                         + " at " + meeting.MeetingStartTime;
 
                     tweetMeeting.PostTwitter(updateTweet);
