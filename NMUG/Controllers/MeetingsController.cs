@@ -62,9 +62,11 @@ namespace NMUG.Controllers
         // POST: Meetings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //Removed Id from Bind - MB 7/22
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files, TwitterAuthAPI _params)
+        public async Task<IActionResult> Create([Bind("MeetingDate,MeetingDescription,MeetingLocation,MeetingPresenter,MeetingStartTime,MeetingEndTime")] Meeting meeting, ICollection<IFormFile> files, TwitterAuthAPI _params)
         {
 
             if (ModelState.IsValid)
@@ -86,6 +88,8 @@ namespace NMUG.Controllers
                         + " at " + meeting.MeetingStartTime;
 
                 tweetMeeting.PostTwitter(tweet);
+
+
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
